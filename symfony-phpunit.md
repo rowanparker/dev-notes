@@ -1,16 +1,16 @@
 # Checking HTTP status codes in functional tests
 
-When running functional unit tests against an **internal** API, check that the actual exception is thrown:
+If you are using exceptions to generate responses (e.g. such as throwing a `BadRequestHttpException` for a 400 error page) then you need to tell the `client` not to catch them. This let's them flow through to the test it self, where you should check that the actual exception is thrown:
 
-    $this->expectException(AccessDeniedException::class);
+    $this->expectException(BadRequestHttpException::class);
     $client = static::createClient();
     $client->client->catchExceptions(false);
     $client->request('GET', '/foo');
 
-When running against an **external** API, use the in-built BrowserKit methods:
+If you are manually creating response objects in your controller (e.g. setting the content and status codes) you should use the in-built BrowserKit methods:
 
     $client = static::createClient();
-    $client->request('GET', 'http://api.example.com/foo');
+    $client->request('GET', '/bar');
     $this->assertStatusCode(403);
 
 # Database Testing
