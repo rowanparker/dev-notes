@@ -1,3 +1,10 @@
+# Symfony
+
+
+### Access environment variables
+
+To access `MY_VAR=foo` from `.env*` files in a Twig template use `{{ app.request.server.get('MY_VAR') }}`
+
 # Checking HTTP status codes in functional tests
 
 If you are using exceptions to generate responses (e.g. such as throwing a `BadRequestHttpException` for a 400 error page) then you need to tell the `client` not to catch them. This let's them flow through to the test it self, where you should check that the actual exception is thrown:
