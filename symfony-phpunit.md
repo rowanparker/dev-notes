@@ -65,3 +65,18 @@ To access the current environment, use the Kernel Interface:
     //...
     $kernel->getEnvironment();
     //...
+    
+    
+### Symfony Make Migration Metdata Storage Sync Error
+
+Fix this by appending the correct serverVersion string to the database URL.
+
+    The metadata storage is not up to date, please run the sync-metadata-storage command to fix this issue
+
+    DATABASE_URL=mysql://root:@127.0.0.1:3306/testtest?serverVersion=10.4.11
+    to
+    DATABASE_URL=mysql://root:@127.0.0.1:3306/testtest?serverVersion=mariadb-10.4.11
+
+
+
+
