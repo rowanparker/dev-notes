@@ -50,6 +50,15 @@ A related problem that occurs when using data fixtures is that it attempts to us
     php bin/console doctrine:database:create --env=test
     php bin/console doctrine:migrations:migrate --env=test
     php bin/console doctrine:fixtures:load --env=test
+    
+### Doctrine relation collections not loading during tests
+
+Clear the Entity Manager cache in the test setup:
+
+    $this->entityManager->clear();
+    
+Refer to https://stackoverflow.com/questions/18268464/doctrine-lazy-loading-in-symfony-test-environment
+    
 
 # Determining current environment
 
