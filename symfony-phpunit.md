@@ -86,6 +86,9 @@ Fix this by appending the correct serverVersion string to the database URL.
     to
     DATABASE_URL=mysql://root:@127.0.0.1:3306/testtest?serverVersion=mariadb-10.4.11
 
+### Acccess mapped entity in Symfony Form in Twig template
 
+https://stackoverflow.com/questions/23868624/access-mapped-entity-from-form-in-twig
 
+    {{ form.vars.data.firstName }}
 
