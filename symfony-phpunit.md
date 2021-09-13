@@ -1,9 +1,24 @@
 # Symfony
 
 
-### Access environment variables
+## Access environment variables
 
-To access `MY_VAR=foo` from `.env*` files in a Twig template use `{{ app.request.server.get('MY_VAR') }}`
+### Controller
+
+In `config/services.yaml`
+
+    parameters:
+        app.paramname: '%env(APP_PARAM)%'
+
+In  `src/Controller/SomeController.php`
+
+    $this->getParameter('app.paramname');
+
+https://stackoverflow.com/questions/52151783/symfony-4-get-env-parameter-from-a-controller-is-it-possible-and-how
+
+### Twig Template
+
+`MY_VAR=foo` use `{{ app.request.server.get('MY_VAR') }}`
 
 # Checking HTTP status codes in functional tests
 
