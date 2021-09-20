@@ -90,6 +90,11 @@ To access the current environment, use the Kernel Interface:
     $kernel->getEnvironment();
     //...
     
+### Dynamic per-request Doctrine database connections
+
+https://karoldabrowski.com/blog/dynamic-database-connection-based-on-request-symfony-and-doctrine/
+
+Use the `wrapper_class` parameter and extend the `Connection` class.    
     
 ### Symfony Make Migration Metdata Storage Sync Error
 
