@@ -112,3 +112,9 @@ https://stackoverflow.com/questions/23868624/access-mapped-entity-from-form-in-t
 
     {{ form.vars.data.firstName }}
 
+### bin/console + xdebug + phpstorm
+
+Add Run/Debug configuration
+
+    File: /project_dir/bin/console
+    Arguments: command_name
