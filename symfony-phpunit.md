@@ -118,3 +118,16 @@ Add Run/Debug configuration
 
     File: /project_dir/bin/console
     Arguments: command_name
+    
+### Project Directory
+
+`services.yaml`
+
+    services:
+        _defaults:
+            bind:
+                $projectDir: '%kernel.project_dir%'
+
+`SomeService.php`
+
+    public function __construct(private string $projectDir)
