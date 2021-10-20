@@ -131,3 +131,15 @@ Add Run/Debug configuration
 `SomeService.php`
 
     public function __construct(private string $projectDir)
+    
+### Database connection error when running cache:clear
+
+If the `server_version` value is not set in the configuration, Doctrine will try connecting to the server to determine it. 
+https://stackoverflow.com/questions/34023813/symfony-2-7-cacheclear-command-checks-every-database-connection
+
+    #config.yml
+
+    doctrine:
+        dbal:
+        ...
+            server_version:       5.6
