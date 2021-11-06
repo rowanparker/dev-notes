@@ -143,3 +143,20 @@ https://stackoverflow.com/questions/34023813/symfony-2-7-cacheclear-command-chec
         dbal:
         ...
             server_version:       5.6
+
+### Loading fixtures with DateTimeImmutable fields
+
+    # src/Faker/Provider/CustomProvider.php
+    
+    namespace App\Faker\Provider;
+
+    use Carbon\CarbonImmutable;
+    use Faker\Provider\Base;
+
+    final class CustomProvider extends Base
+    {
+        public function carbonImmutable(string $dateTime): CarbonImmutable
+        {
+            return CarbonImmutable::parse($dateTime, 'utc');
+        }
+    }
