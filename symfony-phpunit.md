@@ -160,3 +160,45 @@ https://stackoverflow.com/questions/34023813/symfony-2-7-cacheclear-command-chec
             return CarbonImmutable::parse($dateTime, 'utc');
         }
     }
+
+    # fixtures/user.yml
+    
+    App\Entity\User:
+        user_1:
+            ...
+            createdAt: <carbonImmutable('2020-01-01T00:00:00')>
+            
+            
+### Formatting dates in twig via Carbon
+
+    # src/Twig/AppExtension.php
+
+    use Carbon\Carbon;
+    use Carbon\CarbonInterval;
+    use Twig\Extension\AbstractExtension;
+    use Twig\TwigFilter;
+
+    class AppExtension extends AbstractExtension
+    {
+        public function getFilters()
+        {
+            return [
+                new TwigFilter('human_datetime', [$this, 'humanDatetime']),
+                new TwigFilter('human_duration', [$this, 'humanDuration']),
+            ];
+        }
+
+        public function humanDuration(mixed $duration)
+        {
+            return CarbonInterval::seconds((int) $duration)->cascade()->forHumans();
+        }
+
+        public function humanDatetime(\DateTime|\DateTimeImmutable $dateTime)
+        {
+            return (new Carbon($dateTime))->toDayDateTimeString();
+        }
+    }
+    
+    # templates/home/index.html.twig
+        
+    {{ dateFoo|human_datetime }}
