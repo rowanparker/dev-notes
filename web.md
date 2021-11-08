@@ -2,11 +2,9 @@
 
 #### Event Targets
 
-`event.target` is the node from which the event originated, ie. wherever you place your event listener (on paragraph or span), event.target refers to node (where user clicked).
+`event.target` is the element that triggered the event (e.g. icon inside button)
 
-`event.currentTarget`, on the opposite, refers to the node on which current-event listener was attached. Ie. if we attached our event listener on paragraph node, then event.currentTarget refers to paragraph while event.target still refers to span. Note: that if we also have an event listener on body, then for this event-listener, event.currentTarget refers to body (ie. event provided as input to event-listerners is updated each time event is bubbling one node up).
-
-https://stackoverflow.com/questions/10086427/what-is-the-exact-difference-between-currenttarget-property-and-target-property
+`event.currentTarget` is the element that the listener is attached to (e.g. button iself).
 
 # Symfony
 
