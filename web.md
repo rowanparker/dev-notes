@@ -6,6 +6,12 @@
 
 `event.currentTarget` is the element that the listener is attached to (e.g. button iself).
 
+#### Operators
+
+`foo?.bar` optional chaining
+
+`foo!.bar` TypeScript non-null assertion
+
 # Symfony
 
 
