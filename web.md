@@ -12,7 +12,19 @@
 
 `foo!.bar` TypeScript non-null assertion
 
+# Rush
+
+ #### Clear pnpm-lock.yaml
+
+```
+pnpm why @foo/bar -r
+git checkout origin/main -- common/config/rush/pnpm-lock.yaml
+rush update
+```
+
 # Symfony
+
+
 
 
 ## Access environment variables
