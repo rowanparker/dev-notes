@@ -21,6 +21,14 @@ pnpm why @foo/bar -r
 git checkout origin/main -- common/config/rush/pnpm-lock.yaml
 rush update
 ```
+#### Missing `.eslintrc.js`
+
+```
+Plugin "react" was conflicted between "package.json » eslint-config-react-app » ...\node_modules\eslint-config-react-app\base.js" and "BaseConfig » ...\node_modules\.pnpm\eslint-config-react-app@7.0.1_7e5e6237d96334972dc90355c15ec900\node_modules\eslint-config-react-app\base.js".
+```
+
+The individual project within the monorepo is likely missing it's own `.eslintrc.js` file.
+
 
 # Symfony
 
