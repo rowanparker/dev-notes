@@ -29,6 +29,16 @@ Plugin "react" was conflicted between "package.json Â» eslint-config-react-app Â
 
 The individual project within the monorepo is likely missing it's own `.eslintrc.js` file.
 
+#### Invalid package.json
+
+https://github.com/microsoft/rushstack/issues/2678#issuecomment-890270823
+
+>Another problem I've encountered is if you have a trailing comma in one of your settings (e.g. "dependencies": { "x": "1.2.3", }) then rush install will process it okay, but PNPM will fail to install without printing any error message.
+
+```
+pnpm-store --no-prefer-frozen-lockfile --recursive --link-workspace-packages false
+The command failed with exit code 1
+```
 
 # Symfony
 
