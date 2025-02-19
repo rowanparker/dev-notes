@@ -8,9 +8,33 @@
 
 #### Operators
 
-`foo?.bar` optional chaining
+```typescript
+foo?.bar // optional chaining
+foo!.bar // TypeScript non-null assertion
+```
 
-`foo!.bar` TypeScript non-null assertion
+#### Nullish Coalescing vs Logical OR
+
+**?? (Nullish Coalescing Operator)**
+- Returns the right-hand operand only if the left-hand operand is null or undefined.
+- It does not treat false, 0, NaN, or "" (empty string) as "nullish."
+
+```typescript
+const value = null ?? "default"; // "default"
+const value2 = undefined ?? "default"; // "default"
+const value3 = 0 ?? "default"; // 0 (not replaced)
+const value4 = "" ?? "default"; // "" (not replaced)
+```
+
+**|| (Logical OR Operator)**
+- Returns the right-hand operand if the left-hand operand is falsy (false, 0, NaN, "", null, or undefined).
+
+```typescript
+const value = null || "default"; // "default"
+const value2 = undefined || "default"; // "default"
+const value3 = 0 || "default"; // "default" (0 is falsy)
+const value4 = "" || "default"; // "default" (empty string is falsy)
+```
 
 # Rush
 
